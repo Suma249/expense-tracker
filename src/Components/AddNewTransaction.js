@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react'
-import { globalContext} from '../Context/global';
+import { GlobalContext} from '../Context/global';
 
 function AddNewTransaction() {
     const [text,setText]=useState('');
     const [amount, setAmount]=useState('');
-    const {addTransaction} = useContext(globalContext);
+    const {addTransaction} = useContext(GlobalContext);
 
     const onSubmit = (e) =>{
         e.preventDefault();

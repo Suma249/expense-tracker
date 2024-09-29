@@ -1,13 +1,13 @@
 import React, { useContext } from 'react'
-import { globalContext } from '../Context/global';
+import { GlobalContext } from '../Context/global';
 
-function Transaction( {key, transaction}) {
-  const {deleteTransaction} = useContext(globalContext)
+function Transaction( {transaction}) {
+  const {deleteTransaction} = useContext(GlobalContext)
     const sign= transaction.amount<0?'-':'+';
   return (
     <div>
-         <li className={sign==='-'?'minus':'plus'} key={key}>
-              {transaction.text} <span>{sign}${Math.abs(transaction.amount)}</span><button onClick={deleteTransaction(key)} className='delete-btn'>x</button>
+         <li className={sign==='-'?'minus':'plus'} key={transaction.id}>
+              {transaction.text} <span>{sign}${Math.abs(transaction.amount)}</span><button onClick={() => deleteTransaction(transaction.id)} className='delete-btn'>x</button>
             </li>
     </div>
   )
